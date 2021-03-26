@@ -41,6 +41,7 @@ pip install z3-solver
 - 输入xx.python
 
 ```python
+# 示例1
 from z3 import *
 
 if __name__ == "__main__":
@@ -67,6 +68,7 @@ sat
 - 输入：xx.python
 
 ```python
+# 示例2
 from z3 import *
 
 if __name__ == "__main__":

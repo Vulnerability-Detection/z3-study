@@ -1,5 +1,7 @@
 # Python中的z3 api-Basics
 
+- 源地址：https://ericpony.github.io/z3py-tutorial/guide-examples.htm
+
 ## 1、介绍
 
 Z3是由Microsoft Research开发的高性能定理证明器。 
@@ -394,7 +396,7 @@ z = Real('z')
 ％s带有d解释的文本表示形式（即m[d]）。
 Z3Py会在需要时自动将Z3对象转换为文本表示形式。
 
-## 5、Arithmetic
+## 5、算术（Arithmetic）
 
 Z3支持实数和整数变量。 可以将它们混合在一个问题中。 
 像大多数编程语言一样，Z3Py将在需要时自动添加强制转换，以将整数表达式转换为实数表达式。 
