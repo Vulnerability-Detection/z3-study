@@ -9,8 +9,8 @@ z3是由微软公司开发的一个优秀的**SMT求解器**（其实就是一�
 ## 学习资源
 
 - [x] z3 github：https://github.com/Z3Prover/z3
-- [x] z3 API in Python：https://ericpony.github.io/z3py-tutorial/guide-examples.htm
 - [x] API文档（C、C++、.NET、Java、Python）：http://z3prover.github.io/api/html/index.html
+- [x] z3 API in Python：https://ericpony.github.io/z3py-tutorial/guide-examples.htm
 - [x] SMT *Competition*：https://smt-comp.github.io/2021/
 - [x] SMT-LIB：http://smtlib.cs.uiowa.edu/
 - [x] angr框架的内置Z3：https://github.com/angr/angr-z3
@@ -25,6 +25,10 @@ z3是由微软公司开发的一个优秀的**SMT求解器**（其实就是一�
 
 - [x] win10：带你入逆向坑，怎样在win10上安装并使用Z3库：https://www.jianshu.com/p/5530c6bb4a39
 - [x] z3-solver安装和使用方法：https://www.cnblogs.com/pcat/p/12592272.html
+
+## 应用
+
+- [ ] 使用Z3 Solver求解逻辑题：https://www.7forz.com/3255/
 
 ## Paper
 
