@@ -244,3 +244,108 @@ if __name__ == "__main__":
 
 ```
 
+策略可以与求解器结合使用。 
+例如，我们可以将策略应用于目标，生成一组子目标，然后选择一个子目标并使用求解器对其进行求解。 
+下一个示例演示了如何执行此操作，以及如何使用**模型转换器将子目标的模型转换为原始目标的模型。**
+
+```python
+# 示例52
+from z3 import *
+
+if __name__ == "__main__":
+    t = Then('simplify','normalize-bounds','solve-eqs')
+    x, y, z = Ints('x y z')
+    g = Goal()
+    g.add(x > 10, y == x + 3, z > y)
+
+    r = t(g)
+    # r contains only one subgoal
+    # r仅包含一个子目标
+    print(r)  # [[Not(k!0 <= -1), Not(z <= 14 + k!0)]]
+
+    s = Solver()
+    s.add(r[0])
+    print(s.check())  # sat
+    # Model for the subgoal
+    # 子目标模型
+    print(s.model())  # [z = 15]
+    # Model for the original goal
+    # 最初目标的模型
+    # 会报错=> AttributeError: 'ApplyResult' object has no attribute 'convert_model'
+    # print(r.convert_model(s.model()))
+
+```
+
+## 3、探针
+
+探测（又称**公式测度**）是针对目标进行评估的。
+可以使用关系运算符和布尔连接词来构建它们之上的布尔表达式。 
+如果给定目标不满足条件cond，则战术FailIf（cond）失败。 
+Z3Py中提供了许多数值和布尔量度。 
+命令describe_probes（）提供所有内置探针的列表。
+
+```python
+describe_probes()
+```
+
+在下面的示例中，我们使用FailIf构建简单的策略。 
+它还表明可以将探针直接应用于目标。
+
+```python
+# 示例53
+from z3 import *
+
+if __name__ == "__main__":
+    x, y, z = Reals('x y z')
+    g = Goal()
+    g.add(x + y + z > 0)
+
+    p = Probe('num-consts')
+    print("num-consts:", p(g))  # num-consts: 3.0
+
+    t = FailIf(p > 2)
+    try:
+        t(g)
+    except Z3Exception:
+        print("tactic failed")  # tactic failed
+
+    print("trying again...")  # trying again...
+    g = Goal()
+    g.add(x + y > 0)
+    print(t(g))  # [[x + y > 0]]
+
+```
+
+Z3Py还提供了组合器（战术） `If(p, t1, t2)`，它是以下各项的简写：
+
+```python
+OrElse(Then(FailIf(Not(p)), t1), t2)
+```
+
+组合器 `When(p, t)`是以下各项的简写：
+
+```python
+If(p, t, 'skip')
+```
+
+skip策略只是返回输入目标。 下面的示例演示如何使用If组合器。
+
+```python
+# 示例54
+from z3 import *
+
+if __name__ == "__main__":
+    x, y, z = Reals('x y z')
+    g = Goal()
+    g.add(x ** 2 - y ** 2 >= 0)
+
+    p = Probe('num-consts')
+    t = If(p > 2, 'simplify', 'factor')
+    print(t(g))  # [[(y + -1*x)*(y + x) <= 0]]
+
+    g = Goal()
+    g.add(x + x + y + z >= 0, x ** 2 - y ** 2 >= 0)
+    print(t(g))  # [[2*x + y + z >= 0, x**2 + -1*y**2 >= 0]]
+
+```
+

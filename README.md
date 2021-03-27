@@ -1,4 +1,4 @@
-# [python/工具] python z3库学习 减乘除位与运算 ctf一把梭z3-study
+# z3-study
 
 z3学习
 
@@ -10,7 +10,11 @@ z3是由微软公司开发的一个优秀的**SMT求解器**（其实就是一�
 
 - [ ] z3 github：https://github.com/Z3Prover/z3
 - [ ] API文档（C、C++、.NET、Java、Python）：http://z3prover.github.io/api/html/index.html
-- [ ] z3 API in Python：https://ericpony.github.io/z3py-tutorial/guide-examples.htm
+- [x] z3 API in Python：https://ericpony.github.io/z3py-tutorial/guide-examples.htm
+
+  Z3py tutorial：https://github.com/ericpony/z3py-tutorial 103
+
+  Z3 API in PYTHON 中文文档 （官方文档翻译）：https://arabelatso.github.io/2018/06/14/Z3%20API%20in%20Python/
 - [ ] SMT *Competition*：https://smt-comp.github.io/2021/
 - [ ] SMT-LIB：http://smtlib.cs.uiowa.edu/
 - [ ] 二进制分析框架angr框架的内置Z3：https://github.com/angr/angr-z3
@@ -34,9 +38,7 @@ z3是由微软公司开发的一个优秀的**SMT求解器**（其实就是一�
 - [x] z3-solver安装和使用方法：https://www.cnblogs.com/pcat/p/12592272.html
 - [x] [python/工具] python z3库学习 减乘除位与运算 ctf一把梭：https://www.jianshu.com/p/64d87659673a
 - [ ] Intro to Binary Analysis with Z3 and angr：https://github.com/FSecureLABS/z3_and_angr_binary_analysis_workshop
-- [ ] Z3py tutorial：https://github.com/ericpony/z3py-tutorial 103
 - [ ] z3-playground：https://github.com/0vercl0k/z3-playground 218
-- [ ] 
 
 ## 经典应用
 
@@ -51,8 +53,8 @@ z3是由微软公司开发的一个优秀的**SMT求解器**（其实就是一�
 - [ ] 金继伟,马菲菲,张健.SMT求解技术简述[J].计算机科学与探索,2015,9(07):769-780.
 - [ ] **Programming Z3**：https://theory.stanford.edu/~nikolaj/programmingz3.html
 - [ ] yinyang: a fuzzer for SMT solvers：https://github.com/testsmt/yinyang 84
-- [ ] 【PLDI2020 CCF-A】**Validating SMT solvers via semantic fusion**：http://chengyuzhang.com/
-- [ ] **On the unusual effectiveness of type-aware operator mutations for testing SMT solvers**
+- [ ] 【PLDI2020 CCF-A】Validating SMT solvers via semantic fusion：http://chengyuzhang.com/
+- [ ] On the unusual effectiveness of type-aware operator mutations for testing SMT solvers
 
 - [ ] 【ASE2019 CCF-A】Manticore: A User-Friendly Symbolic Execution Framework for Binaries and Smart Contracts：https://github.com/trailofbits/manticore
 
