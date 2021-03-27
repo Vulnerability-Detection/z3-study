@@ -43,6 +43,7 @@ if __name__ == '__main__':
   Z3py tutorial：https://github.com/ericpony/z3py-tutorial 103
 
   【翻译】Z3 API in PYTHON 中文文档 （官方文档翻译）：https://arabelatso.github.io/2018/06/14/Z3%20API%20in%20Python/
+  
   【翻译】Z3 API in Python：https://nen9ma0.github.io/2018/03/14/z3py/
   
 - [ ] SMT竞赛：https://smt-comp.github.io/2021/
