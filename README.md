@@ -1,4 +1,4 @@
-# z3-study
+# Z3 API in Pythonz3-study
 
 z3学习-推荐使用Python进行学习。
 
@@ -42,7 +42,8 @@ if __name__ == '__main__':
 
   Z3py tutorial：https://github.com/ericpony/z3py-tutorial 103
 
-  Z3 API in PYTHON 中文文档 （官方文档翻译）：https://arabelatso.github.io/2018/06/14/Z3%20API%20in%20Python/
+  【翻译】Z3 API in PYTHON 中文文档 （官方文档翻译）：https://arabelatso.github.io/2018/06/14/Z3%20API%20in%20Python/
+  【翻译】Z3 API in Python：https://nen9ma0.github.io/2018/03/14/z3py/
   
 - [ ] SMT竞赛：https://smt-comp.github.io/2021/
 
@@ -116,11 +117,13 @@ if __name__ == '__main__':
 
 ## 经典应用
 
-- 解方程
+- 约束求解
 - 八皇后
 - 数独
 - 安装依赖、冲突问题
+- CTF竞赛解题
 - [x] 使用Z3 Solver求解逻辑题：https://www.7forz.com/3255/
+- [ ] Z3简介及在逆向领域的应用：https://cloud.tencent.com/developer/article/1423409
 
 ## Paper
 
