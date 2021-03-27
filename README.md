@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
   【Python】http://z3prover.github.io/api/html/namespacez3py.html
 
-  【官方文档】Getting Started with Z3: A Guide：
+  【官方教程】Getting Started with Z3: A Guide：
   http://rise4fun.com/z3/tutorial/guide
 
   https://rise4fun.com/Z3/tutorialcontent/fixedpoints
@@ -78,7 +78,7 @@ if __name__ == '__main__':
 
 - **CNF（conjunctive normal form）：**命题公式的**合取范式形式**。也就是形如A1^A2^...^An的公式，其中每一个Ai是一个子句。
 
-- **UF（uninterpreted function）：**未解释函数。
+- UF（uninterpreted function）：未解释函数。
 
 - LRA（linear real arithmetic）：线性实数演算。
 
@@ -124,12 +124,22 @@ if __name__ == '__main__':
 
 ## Paper
 
-- [x] **【综述】**金继伟,马菲菲,张健.**SMT求解技术简述**[J].计算机科学与探索,2015,9(07):769-780. http://fcst.ceaj.org/CN/abstract/abstract956.shtml
-- [x] **【综述】**王翀,吕荫润,陈力,王秀利,王永吉.**SMT求解技术的发展及最新应用研究综述**[J].计算机研究与发展,2017,54(07):1405-1425. https://crad.ict.ac.cn/CN/10.7544/issn1000-1239.2017.20160303
+- [x] 【综述】金继伟,马菲菲,张健.**SMT求解技术简述**[J].计算机科学与探索,2015,9(07):769-780. 
+
+  http://fcst.ceaj.org/CN/abstract/abstract956.shtml
+
+- [x] 【综述】王翀,吕荫润,陈力,王秀利,王永吉.**SMT求解技术的发展及最新应用研究综述**[J].计算机研究与发展,2017,54(07):1405-1425. 
+
+  https://crad.ict.ac.cn/CN/10.7544/issn1000-1239.2017.20160303
+
 - [ ] **Programming Z3**：https://theory.stanford.edu/~nikolaj/programmingz3.html
+
 - [ ] yinyang: a fuzzer for SMT solvers：https://github.com/testsmt/yinyang 84
+
 - [ ] 【PLDI2020 CCF-A】Validating SMT solvers via semantic fusion：http://chengyuzhang.com/
+
 - [ ] On the unusual effectiveness of type-aware operator mutations for testing SMT solvers
+
 - [ ] 【ASE2019 CCF-A】Manticore: A User-Friendly Symbolic Execution Framework for Binaries and Smart Contracts：https://github.com/trailofbits/manticore
 
 
