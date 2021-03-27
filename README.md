@@ -113,6 +113,7 @@ if __name__ == '__main__':
 - [x] win10：带你入逆向坑，怎样在win10上安装并使用Z3库：https://www.jianshu.com/p/5530c6bb4a39
 - [x] z3-solver安装和使用方法：https://www.cnblogs.com/pcat/p/12592272.html
 - [x] [python/工具] python z3库学习 减乘除位与运算 ctf一把梭：https://www.jianshu.com/p/64d87659673a
+- [ ] Z3求解器简介及环境搭建：https://blog.csdn.net/guo_shaokun/article/details/99891545
 - [ ] Intro to Binary Analysis with Z3 and angr：https://github.com/FSecureLABS/z3_and_angr_binary_analysis_workshop
 - [ ] z3-playground：https://github.com/0vercl0k/z3-playground 218
 
