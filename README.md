@@ -27,7 +27,13 @@ if __name__ == '__main__':
 
 - [x] z3 github：https://github.com/Z3Prover/z3
 - [ ] API文档（C、C++、.NET、Java、Python）：http://z3prover.github.io/api/html/index.html
+
   【Python】http://z3prover.github.io/api/html/namespacez3py.html
+
+  【官方文档】Getting Started with Z3: A Guide：http://rise4fun.com/z3/tutorial/guide
+
+  https://rise4fun.com/Z3/tutorialcontent/fixedpoints
+  https://rise4fun.com/Z3/tutorial/strategies
 - [x] 【Python】z3 API in Python：https://ericpony.github.io/z3py-tutorial/guide-examples.htm
 
   Z3py tutorial：https://github.com/ericpony/z3py-tutorial 103
@@ -38,13 +44,6 @@ if __name__ == '__main__':
 - [ ] 二进制分析框架angr框架的内置Z3：https://github.com/angr/angr-z3
 - [ ] Go Bindings to the Z3 Theorem Prover：https://github.com/mitchellh/go-z3
 - [ ] Leonardo de Moura（Senior Principal Researcher）：https://www.microsoft.com/en-us/research/people/leonardo/publications/
-
-## 教程
-
-- [ ] Getting Started with Z3: A Guide：http://rise4fun.com/z3/tutorial/guide
-- [ ] https://rise4fun.com/Z3/tutorialcontent/fixedpoints
-- [ ] https://rise4fun.com/Z3/tutorial/strategies
-  
 
 ## 教程-视频
 

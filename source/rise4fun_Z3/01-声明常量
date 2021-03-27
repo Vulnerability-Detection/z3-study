@@ -1,0 +1,3 @@
+(echo "starting Z3...") ; starting Z3...
+(declare-const a Int) ; 声明常量a, Int类型
+(declare-fun f (Int Bool) Int) ; 声明一个函数f，入参：Int、Bool 出参: Int

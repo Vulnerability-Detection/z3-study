@@ -1,11 +1,11 @@
 # Z3入门：指南
 
-- 原地址：https://rise4fun.com/Z3/tutorial/guide
+- 源地址：https://rise4fun.com/Z3/tutorial/guide
 - 实验可以直接在原地址网页执行。
 
 ## 1、介绍
 
-**Z3是Microsoft Research提供的最先进的定理证明器。**它可用于检查一种或多种理论上逻辑公式的可满足性。 
+Z3是Microsoft Research提供的最先进的**定理证明器**。它可用于检查一种或多种理论上逻辑公式的可满足性。 
 
 Z3为软件分析和验证工具提供了引人注目的匹配项，因为几种常见的软件结构直接映射到受支持的理论中。
 
@@ -13,7 +13,7 @@ Z3为软件分析和验证工具提供了引人注目的匹配项，因为几种
 
 本教程提供了一些有关**逻辑建模**的一般背景知识，但是我们必须将**一阶逻辑**和**决策过程**的完整介绍推迟到教科书上。
 
-Z3是低级工具。在需要解决逻辑公式的其他工具的上下文中，它最好用作组件。
+Z3是底层工具。在需要解决逻辑公式的其他工具的上下文中，它最好用作组件。
 
 因此，Z3公开了许多API工具，以方便工具映射到Z3，但是没有独立的编辑器或以用户为中心的工具来与Z3进行交互。
 
@@ -31,7 +31,7 @@ help命令显示所有可用命令的列表。 命令回显将显示一条消息
 
 在内部，Z3维护了一堆用户提供的公式和声明。 我们说这些是用户提供的断言。 
 
-#### 代码1
+#### 代码01
 
 **命令define-const声明给定类型（也称为sort）的常量。** 
 
@@ -39,40 +39,26 @@ help命令显示所有可用命令的列表。 命令回显将显示一条消息
 
 在下面的示例中，我们声明了一个函数，该函数接收一个整数和一个布尔值，并返回一个整数。
 
-- 输入
-
 ```bash
-(echo "starting Z3...")
-(declare-const a Int)
-(declare-fun f (Int Bool) Int)
+# 代码01
+(echo "starting Z3...") ; starting Z3...
+(declare-const a Int) ; 声明常量a, Int类型
+(declare-fun f (Int Bool) Int) ; 声明一个函数f，入参：Int、Bool 出参: Int
 ```
 
-- 输出
-
-```bash
-starting Z3...
-```
-
-#### 代码2
+#### 代码02
 
 命令assert会在Z3内部堆栈中添加一个公式。 
 
 我们说，如果有一种解释（对于用户声明的常量和函数）可以使所有断言的公式为真，则Z3堆栈中的公式集是可以满足的。
 
-- 输入
-
 ```bash
-(declare-const a Int)
-(declare-fun f (Int Bool) Int)
-(assert (> a 10))
-(assert (< (f a true) 100))
-(check-sat)
-```
-
-- 输出
-
-```
-sat
+# 代码02
+(declare-const a Int) ; 声明常量a, Int类型
+(declare-fun f (Int Bool) Int) ; 声明一个函数f，入参：Int、Bool 出参: Int
+(assert (> a 10))   ; 断言=>a > 10
+(assert (< (f a true) 100)) ; 断言=>f(a,true) < 100
+(check-sat) ; sat
 ```
 
 **第一个断言的公式指出常数a必须大于10。**
@@ -87,19 +73,20 @@ sat
 
 当Z3无法确定公式是否可满足时，**Z3可能还会返回unknown。**
 
-#### 代码3
+#### 代码03
 
 当命令check-sat返回sat时，可以使用命令**get-model**检索使Z3内部堆栈上的所有公式为true的解释。
 
 - 输入
 
 ```bash
-(declare-const a Int)
-(declare-fun f (Int Bool) Int)
-(assert (> a 10))
-(assert (< (f a true) 100))
-(check-sat)
-(get-model)
+# 代码03
+(declare-const a Int) ; 声明常量a, Int类型
+(declare-fun f (Int Bool) Int) ; 声明一个函数f，入参：Int、Bool 出参: Int
+(assert (> a 10))   ; 断言=>a > 10
+(assert (< (f a true) 100)) ; 断言=>f(a,true) < 100
+(check-sat) ; sat
+(get-model) ; 获取结果
 ```
 
 - 输出
@@ -141,7 +128,7 @@ sat
 
 当x！1等于11且x！2等于false时，计算（返回）21。 否则，它返回0。
 
-### 使用范围
+### 1、使用范围
 
 在某些应用程序中，我们希望探索共享相似定义和断言的相似问题。 
 
@@ -191,7 +178,7 @@ Z3(15, 8): ERROR: unknown constant p
 
 push和pop命令可以选择接收SMT 2语言指定的数字参数。
 
-### 配置
+### 2、配置
 
 **命令set-option用于配置Z3。 Z3有几个选项可以控制其行为。**
 
@@ -235,7 +222,7 @@ success
 
 在这种模式下，原本不会打印任何输出的命令将成功打印。
 
-### 附加命令
+### 3、附加命令
 
 命令（**display t**）仅将Z3代码美化器应用于给定表达式。 
 
@@ -366,5 +353,42 @@ Z3支持通常的布尔运算符， `and`, `or`, `xor`, `not`, `=>` (implication
 
 ```bash
 unsat
+```
+
+### 1、可满足性和有效性
+
+如果F对于未解释的函数和常量符号的任何适当值赋值始终为true，则公式F有效。
+
+如果对公式F的未解释函数和常量符号进行一些适当的赋值，则F可以满足F。
+
+有效性在于寻找陈述的证明；可满足性是关于找到一组约束的解决方案。
+
+考虑具有一些未解释常数的公式F，例如a和b。
+
+我们可以问F是否有效，即对于a和b的值的任何组合，它是否始终为真。
+
+如果F始终为true，则不是F总是为false，然后F不会具有任何令人满意的分配；也就是说，不是F是不满足的。
+
+也就是说，当F不能满足（不满足）时，F才是有效的。或者，当且仅当F无效（无效）时，F才可满足。 
+
+Z3找到令人满意的分配（或报告没有分配）。为了确定公式F是否有效，我们询问Z3 F是否可满足。
+
+因此，为了检验德摩根定律是否有效（即证明该定律），我们证明其否定性是不令人满意的。
+
+- 输入
+
+```bash
+(declare-const a Bool)
+(declare-const b Bool)
+(define-fun demorgan () Bool
+    (= (and a b) (not (or (not a) (not b)))))
+(assert (not demorgan))
+(check-sat)
+```
+
+- 输出
+
+```bash
+
 ```
 
