@@ -1,16 +1,34 @@
 # z3-study
 
-z3学习
+z3学习-推荐使用Python进行学习。
 
 ---
 
 z3是由微软公司开发的一个优秀的**SMT求解器**（其实就是一个**定理证明器**），它能够检查逻辑表达式的可满足性。
 
+```python
+from z3 import *
+
+if __name__ == '__main__':
+    solver = Solver()  # 第1步：创建求解器
+    x = Int('x')
+    y = Int('y')
+    solver.add(x > 2)
+    solver.add(y < 10)
+    solver.add(x + 2 * y == 7)  # 第2步：添加约束
+    if solver.check() == sat:  # 第3步：判断解是否存在
+        print(solver.model())  # 第4步：输出结果
+    else:
+        print("no sat")
+
+```
+
 ## 学习资源
 
-- [ ] z3 github：https://github.com/Z3Prover/z3
+- [x] z3 github：https://github.com/Z3Prover/z3
 - [ ] API文档（C、C++、.NET、Java、Python）：http://z3prover.github.io/api/html/index.html
-- [x] z3 API in Python：https://ericpony.github.io/z3py-tutorial/guide-examples.htm
+  【Python】http://z3prover.github.io/api/html/namespacez3py.html
+- [x] 【Python】z3 API in Python：https://ericpony.github.io/z3py-tutorial/guide-examples.htm
 
   Z3py tutorial：https://github.com/ericpony/z3py-tutorial 103
 
@@ -46,7 +64,7 @@ z3是由微软公司开发的一个优秀的**SMT求解器**（其实就是一�
 - 八皇后
 - 数独
 - 安装依赖、冲突问题
-- [ ] 使用Z3 Solver求解逻辑题：https://www.7forz.com/3255/
+- [x] 使用Z3 Solver求解逻辑题：https://www.7forz.com/3255/
 
 ## Paper
 
