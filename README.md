@@ -139,6 +139,8 @@ if __name__ == '__main__':
 
 - [ ] **Programming Z3**：https://theory.stanford.edu/~nikolaj/programmingz3.html
 
+- [ ] 【cite:7158】Z3: An Efficient SMT Solver：https://link.springer.com/content/pdf/10.1007%2F978-3-540-78800-3_24.pdf
+
 - [ ] yinyang: a fuzzer for SMT solvers：https://github.com/testsmt/yinyang 84
 
 - [ ] 【PLDI2020 CCF-A】Validating SMT solvers via semantic fusion：http://chengyuzhang.com/
