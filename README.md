@@ -1,6 +1,6 @@
-# Z3 API in Pythonz3-study
+# z3-study
 
-z3学习-推荐使用Python进行学习。
+z3学习（推荐使用Python进行学习。）
 
 ---
 
