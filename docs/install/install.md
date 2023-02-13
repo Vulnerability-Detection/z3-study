@@ -1,7 +1,22 @@
+# Linux安装教程
+
+```bash
+git clone https://github.com/Z3Prover/z3.git
+cd z3
+python scripts/mk_make.py
+cd build
+make
+make install
+```
+
 # window10安装z3-solver python版本
+
 - **注意pip安装的是z3-solver，而不是z3。**
+
 ## 步骤
+
 ### 方法1：使用pip安装z3（错误）
+
 ```bash
 # 安装
 pip install z3
@@ -92,3 +107,13 @@ sat
 [x = 227609298]
 ```
 
+# python安装
+
+## 安装
+### 1、pip install指定版本
+
+- https://pypi.org/project/z3-solver/4.8.10.0/#files
+
+```bash
+pip install z3-solver==4.8.10.0
+```
