@@ -1,0 +1,689 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2-Python中的z3 api-Strategies · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../应用/推理.html" />
+    
+    
+    <link rel="prev" href="2-Z3API_in_Python-Fixedpoints.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../install/install.html">
+            
+                <a href="../install/install.html">
+            
+                    
+                    安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../empty.html">
+            
+                <a href="../../empty.html">
+            
+                    
+                    教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1-Getting%20Started%20with%20Z3-A%20Guide.md">
+            
+                <span>
+            
+                    
+                    1-Z3入门：指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="2-Z3API_in_Python-Advanced.html">
+            
+                <a href="2-Z3API_in_Python-Advanced.html">
+            
+                    
+                    2-Python中的z3 api-Advanced
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="2-Z3API_in_Python-Basics.html">
+            
+                <a href="2-Z3API_in_Python-Basics.html">
+            
+                    
+                    2-Python中的z3 api-Basics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="2-Z3API_in_Python-Fixedpoints.html">
+            
+                <a href="2-Z3API_in_Python-Fixedpoints.html">
+            
+                    
+                    2-Python中的z3 api-Fixedpoints
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.5" data-path="2-Z3API_in_Python-Strategies.html">
+            
+                <a href="2-Z3API_in_Python-Strategies.html">
+            
+                    
+                    2-Python中的z3 api-Strategies
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../应用/推理.html">
+            
+                <a href="../应用/推理.html">
+            
+                    
+                    应用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../paper/综述.html">
+            
+                <a href="../paper/综述.html">
+            
+                    
+                    综述
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >2-Python中的z3 api-Strategies</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="python&#x4E2D;&#x7684;z3-api-strategies">Python&#x4E2D;&#x7684;z3 api-Strategies</h1>
+<ul>
+<li>&#x6E90;&#x5730;&#x5740;&#xFF1A;<a href="https://ericpony.github.io/z3py-tutorial/strategies-examples.htm" target="_blank">https://ericpony.github.io/z3py-tutorial/strategies-examples.htm</a></li>
+</ul>
+<p>&#x8BF8;&#x5982;Z3&#x4E4B;&#x7C7B;&#x7684;&#x9AD8;&#x6027;&#x80FD;&#x6C42;&#x89E3;&#x5668;&#x5305;&#x542B;<strong>&#x8BB8;&#x591A;&#x7B97;&#x6CD5;&#x8BC1;&#x660E;&#x65B9;&#x6CD5;&#x7684;&#x7D27;&#x5BC6;&#x96C6;&#x6210;</strong>&#xFF0C;&#x624B;&#x5DE5;&#x5236;&#x4F5C;&#x7684;&#x542F;&#x53D1;&#x5F0F;&#x7EC4;&#x5408;&#x3002; 
+&#x5C3D;&#x7BA1;&#x8FD9;&#x4E9B;&#x542F;&#x53D1;&#x5F0F;&#x7EC4;&#x5408;&#x5F80;&#x5F80;&#x9488;&#x5BF9;&#x5DF2;&#x77E5;&#x7684;&#x95EE;&#x9898;&#x7C7B;&#x522B;&#x8FDB;&#x884C;&#x4E86;&#x9AD8;&#x5EA6;&#x8C03;&#x6574;&#xFF0C;&#x4F46;&#x5B83;&#x4EEC;&#x5728;&#x65B0;&#x7684;&#x95EE;&#x9898;&#x7C7B;&#x522B;&#x4E0A;&#x53EF;&#x80FD;&#x5F88;&#x5BB9;&#x6613;&#x8868;&#x73B0;&#x5F88;&#x5DEE;&#x3002; <strong>&#x968F;&#x7740;&#x6C42;&#x89E3;&#x5668;&#x5F00;&#x59CB;&#x5F15;&#x8D77;&#x79D1;&#x5B66;&#x548C;&#x5DE5;&#x7A0B;&#x5B66;&#x5404;&#x4E2A;&#x9886;&#x57DF;&#x7684;&#x4ECE;&#x4E1A;&#x8005;&#x7684;&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x53D8;&#x5F97;&#x8D8A;&#x6765;&#x8D8A;&#x7D27;&#x8FEB;&#x3002;</strong> 
+&#x5728;&#x8BB8;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x66F4;&#x6539;&#x6C42;&#x89E3;&#x5668;&#x8BD5;&#x63A2;&#x6CD5;&#x53EF;&#x80FD;&#x4F1A;&#x5E26;&#x6765;&#x5DE8;&#x5927;&#x7684;&#x4E0D;&#x540C;&#x3002;</p>
+<p>&#x5728;&#x672C;&#x6559;&#x7A0B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528;Z3&#x4E2D;&#x53EF;&#x7528;&#x7684;&#x57FA;&#x672C;&#x6784;&#x5EFA;&#x5757;&#x6765;&#x521B;&#x5EFA;&#x81EA;&#x5B9A;&#x4E49;&#x7B56;&#x7565;&#x3002; 
+Z3Py&#x548C;Z3 4.0&#x5B9E;&#x73B0;&#x4E86;&#x672C;&#x6587;&#x63D0;&#x51FA;&#x7684;&#x601D;&#x60F3;&#x3002;</p>
+<p>&#x8BF7;&#x5411;leonardo@microsoft.com&#x53D1;&#x9001;&#x53CD;&#x9988;&#xFF0C;&#x8BC4;&#x8BBA;&#x548C;/&#x6216;&#x66F4;&#x6B63;&#x3002; &#x60A8;&#x7684;&#x8BC4;&#x8BBA;&#x975E;&#x5E38;&#x6709;&#x4EF7;&#x503C;&#x3002;</p>
+<ul>
+<li><a href="http://research.microsoft.com/en-us/um/people/leonardo/strategy.pdf" target="_blank">http://research.microsoft.com/en-us/um/people/leonardo/strategy.pdf</a></li>
+</ul>
+<h2 id="1&#x3001;&#x4ECB;&#x7ECD;">1&#x3001;&#x4ECB;&#x7ECD;</h2>
+<p>Z3&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x79CD;&#x7528;&#x4E8E;&#x7F16;&#x6392;&#x63A8;&#x7406;&#x5F15;&#x64CE;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x4E2D;&#x5C06;&#x201C;&#x5927;&#x201D;&#x7B26;&#x53F7;&#x63A8;&#x7406;&#x6B65;&#x9AA4;&#x8868;&#x793A;&#x4E3A;&#x79F0;&#x4E3A;&#x6218;&#x672F;&#x7684;&#x529F;&#x80FD;&#xFF0C;
+<strong>&#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x79F0;&#x4E3A;&#x6218;&#x672F;&#x7684;&#x7EC4;&#x5408;&#x5668;&#x6765;&#x7EC4;&#x6210;&#x6218;&#x672F;&#x3002;&#x6218;&#x672F;&#x5904;&#x7406;&#x79F0;&#x4E3A;&#x76EE;&#x6807;&#x7684;&#x516C;&#x5F0F;&#x96C6;&#x3002;</strong></p>
+<p>&#x5C06;&#x7B56;&#x7565;&#x5E94;&#x7528;&#x4E8E;<strong>&#x67D0;&#x4E2A;&#x76EE;&#x6807;G</strong>&#x65F6;&#xFF0C;<strong>&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x56DB;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x679C;&#x3002;</strong>
+&#x8BE5;&#x7B56;&#x7565;&#x6210;&#x529F;&#x5730;&#x8868;&#x660E;G&#x662F;&#x53EF;&#x6EE1;&#x8DB3;&#x7684;&#xFF08;&#x5373;&#x53EF;&#x884C;&#x7684;&#xFF09;&#xFF1B;
+&#x6210;&#x529F;&#x8868;&#x660E;G&#x4E0D;&#x6EE1;&#x8DB3;&#x8981;&#x6C42;&#xFF08;&#x5373;&#x4E0D;&#x53EF;&#x884C;&#xFF09;;
+&#x4EA7;&#x751F;&#x4E00;&#x7CFB;&#x5217;&#x5B50;&#x76EE;&#x6807;&#xFF1B;
+&#x6216;&#x5931;&#x8D25;&#x3002;
+&#x5F53;&#x5C06;&#x76EE;&#x6807;G&#x51CF;&#x5C11;&#x4E3A;&#x5B50;&#x76EE;&#x6807;G1&#xFF0C;...&#xFF0C;Gn&#x7684;&#x5E8F;&#x5217;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x9762;&#x4E34;&#x6A21;&#x578B;&#x8F6C;&#x6362;&#x7684;&#x95EE;&#x9898;&#x3002;
+<strong>&#x6A21;&#x578B;&#x8F6C;&#x6362;&#x5668;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x5B50;&#x76EE;&#x6807;Gi&#x7684;&#x6A21;&#x578B;&#x6784;&#x9020;G&#x7684;&#x6A21;&#x578B;&#x3002;</strong></p>
+<p>&#x5728;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x76EE;&#x6807;g&#xFF0C;&#x8BE5;&#x76EE;&#x6807;g&#x7531;&#x4E09;&#x4E2A;&#x516C;&#x5F0F;&#x7EC4;&#x6210;&#xFF0C;&#x4E00;&#x4E2A;&#x7B56;&#x7565;t&#x7531;&#x4E24;&#x4E2A;&#x5185;&#x7F6E;&#x7B56;&#x7565;&#x7EC4;&#x6210;&#xFF1A;
+<strong>simple&#x548C;solve-eqs&#x3002;</strong>
+<strong>&#x7B80;&#x5316;&#x7B56;&#x7565;&#x5C06;&#x5E94;&#x7528;&#x7B49;&#x6548;&#x4E8E;&#x547D;&#x4EE4;simple&#x7684;&#x8F6C;&#x6362;&#x3002;</strong>
+<strong>&#x6218;&#x672F;solver-eqs&#x4F7F;&#x7528;&#x9AD8;&#x65AF;&#x6D88;&#x9664;&#x6CD5;&#x6D88;&#x9664;&#x53D8;&#x91CF;&#x3002;</strong>
+&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;solve-eqs&#x4E0D;&#x4EC5;&#x4EC5;&#x9650;&#x4E8E;&#x7EBF;&#x6027;&#x7B97;&#x672F;&#x3002;&#x5B83;&#x8FD8;&#x53EF;&#x4EE5;&#x6D88;&#x9664;&#x4EFB;&#x610F;&#x53D8;&#x91CF;&#x3002;
+&#x7136;&#x540E;&#xFF0C;<strong>&#x7EC4;&#x5408;&#x5668;then&#x5C06;simplify&#x5E94;&#x7528;&#x4E8E;&#x8F93;&#x5165;&#x76EE;&#x6807;&#xFF0C;&#x5E76;&#x5BF9;&#x7531;simplify&#x4EA7;&#x751F;&#x7684;&#x6BCF;&#x4E2A;&#x5B50;&#x76EE;&#x6807;&#x6C42;&#x89E3;&#x7B49;&#x5F0F;&#x3002;</strong>
+&#x5728;&#x6B64;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x4EC5;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5B50;&#x76EE;&#x6807;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B;44</span>
+<span class="hljs-keyword">from</span> z3 <span class="hljs-keyword">import</span> *
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    x, y = Reals(<span class="hljs-string">&apos;x y&apos;</span>)
+    g = Goal()
+    g.add(x &gt; <span class="hljs-number">0</span>, y &gt; <span class="hljs-number">0</span>, x == y + <span class="hljs-number">2</span>)
+    print(g)  <span class="hljs-comment"># [x &gt; 0, y &gt; 0, x == y + 2]</span>
+
+    t1 = Tactic(<span class="hljs-string">&apos;simplify&apos;</span>)
+    t2 = Tactic(<span class="hljs-string">&apos;solve-eqs&apos;</span>)
+    t = Then(t1, t2)
+    print(t(g))  <span class="hljs-comment"># [[Not(y &lt;= -2), Not(y &lt;= 0)]]</span>
+</code></pre>
+<p><strong>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x53D8;&#x91CF;x&#x88AB;&#x6D88;&#x9664;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4EE3;&#x8868;&#x6700;&#x7EC8;&#x76EE;&#x6807;&#x3002;</strong></p>
+<p>&#x5728;Z3&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x8BF4;&#x4E00;&#x4E2A;&#x5B50;&#x53E5;&#x662F;&#x5F62;&#x5F0F;&#x4E3A;Or&#xFF08;f_1&#xFF0C;...&#xFF0C;f_n&#xFF09;&#x7684;&#x4EFB;&#x4F55;&#x7EA6;&#x675F;&#x3002; 
+&#x6218;&#x672F;&#x62C6;&#x5206;&#x5B50;&#x53E5;&#x5C06;&#x5728;&#x8F93;&#x5165;&#x76EE;&#x6807;&#x4E2D;&#x9009;&#x62E9;&#x5B50;&#x53E5;Or&#xFF08;f_1&#xFF0C;...&#xFF0C;f_n&#xFF09;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x62C6;&#x5206;&#x4E3A;n&#x4E2A;&#x5B50;&#x76EE;&#x6807;&#x3002; 
+&#x6BCF;&#x4E2A;&#x5B50;&#x516C;&#x5F0F;f_i&#x4E00;&#x4E2A;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B;45</span>
+<span class="hljs-keyword">from</span> z3 <span class="hljs-keyword">import</span> *
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    x, y = Reals(<span class="hljs-string">&apos;x y&apos;</span>)
+    g = Goal()
+    g.add(Or(x &lt; <span class="hljs-number">0</span>, x &gt; <span class="hljs-number">0</span>), x == y + <span class="hljs-number">1</span>, y &lt; <span class="hljs-number">0</span>)
+
+    t = Tactic(<span class="hljs-string">&apos;split-clause&apos;</span>)
+    r = t(g)
+    <span class="hljs-keyword">for</span> g <span class="hljs-keyword">in</span> r:
+        print(g)
+
+<span class="hljs-comment"># [x &lt; 0, x == y + 1, y &lt; 0]</span>
+<span class="hljs-comment"># [x &gt; 0, x == y + 1, y &lt; 0]</span>
+</code></pre>
+<h2 id="2&#x3001;&#x7B56;&#x7565;">2&#x3001;&#x7B56;&#x7565;</h2>
+<p>Z3&#x914D;&#x5907;&#x4E86;&#x8BB8;&#x591A;&#x5185;&#x7F6E;&#x7B56;&#x7565;&#x3002; &#x547D;&#x4EE4;describe_tactics()&#x63D0;&#x4F9B;&#x4E86;&#x6240;&#x6709;&#x5185;&#x7F6E;&#x7B56;&#x7565;&#x7684;&#x7B80;&#x77ED;&#x63CF;&#x8FF0;&#x3002;</p>
+<pre><code class="lang-python">describe_tactics()
+</code></pre>
+<p>Z3Py&#x914D;&#x5907;&#x4E86;&#x4EE5;&#x4E0B;&#x6218;&#x672F;&#x7EC4;&#x5408;&#x5668;&#xFF08;&#x53C8;&#x540D;&#x6218;&#x672F;&#xFF09;&#xFF1A;</p>
+<p><strong>Then(t, s)</strong>&#xFF1A;&#x5C06;t&#x5E94;&#x7528;&#x4E8E;&#x8F93;&#x5165;&#x76EE;&#x6807;&#xFF0C;&#x5E76;&#x5C06;s&#x5E94;&#x7528;&#x4E8E;t&#x4EA7;&#x751F;&#x7684;&#x6BCF;&#x4E2A;&#x5B50;&#x76EE;&#x6807;&#x3002;
+<strong>OrElse(t, s)</strong>&#xFF1A;&#x9996;&#x5148;&#x5C06;t&#x5E94;&#x7528;&#x4E8E;&#x7ED9;&#x5B9A;&#x76EE;&#x6807;&#xFF0C;&#x5982;&#x679C;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;s&#x5E94;&#x7528;&#x4E8E;&#x7ED9;&#x5B9A;&#x76EE;&#x6807;&#x7684;&#x7ED3;&#x679C;&#x3002;
+<strong>Repeat(t)</strong> &#xFF1A;&#x7EE7;&#x7EED;&#x5E94;&#x7528;&#x7ED9;&#x5B9A;&#x7684;&#x7B56;&#x7565;&#xFF0C;&#x76F4;&#x5230;&#x6CA1;&#x6709;&#x5B50;&#x76EE;&#x6807;&#x88AB;&#x4FEE;&#x6539;&#x3002;
+<strong>Repeat(t, n)</strong>&#xFF1A;&#x7EE7;&#x7EED;&#x5E94;&#x7528;&#x7ED9;&#x5B9A;&#x7684;&#x7B56;&#x7565;&#xFF0C;&#x76F4;&#x5230;&#x6CA1;&#x6709;&#x5B50;&#x76EE;&#x6807;&#x88AB;&#x4FEE;&#x6539;&#xFF0C;&#x6216;&#x8005;&#x8FED;&#x4EE3;&#x6B21;&#x6570;&#x5927;&#x4E8E;n&#x3002;
+<strong>TryFor(t, ms)</strong>&#xFF1A;&#x5C06;&#x7B56;&#x7565;t&#x5E94;&#x7528;&#x4E8E;&#x8F93;&#x5165;&#x76EE;&#x6807;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x6CA1;&#x6709;&#x4EE5;ms millisenconds&#x7684;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x5931;&#x8D25;&#x3002;
+<strong>With(t, params)</strong>&#xFF1A;&#x4F7F;&#x7528;&#x7ED9;&#x5B9A;&#x7684;&#x53C2;&#x6570;&#x5E94;&#x7528;&#x7ED9;&#x5B9A;&#x7684;&#x7B56;&#x7565;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x6F14;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x7EC4;&#x5408;&#x5668;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B;46</span>
+<span class="hljs-keyword">from</span> z3 <span class="hljs-keyword">import</span> *
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    x, y, z = Reals(<span class="hljs-string">&apos;x y z&apos;</span>)
+    g = Goal()
+    g.add(Or(x == <span class="hljs-number">0</span>, x == <span class="hljs-number">1</span>),
+          Or(y == <span class="hljs-number">0</span>, y == <span class="hljs-number">1</span>),
+          Or(z == <span class="hljs-number">0</span>, z == <span class="hljs-number">1</span>),
+          x + y + z &gt; <span class="hljs-number">2</span>)
+    <span class="hljs-comment"># Split all clauses</span>
+    <span class="hljs-comment"># &#x62C6;&#x5206;&#x6240;&#x6709;&#x5B50;&#x53E5;</span>
+    split_all = Repeat(OrElse(Tactic(<span class="hljs-string">&apos;split-clause&apos;</span>), Tactic(<span class="hljs-string">&apos;skip&apos;</span>)))
+    print(split_all(g))
+    <span class="hljs-comment"># [[x == 0, y == 0, z == 0, x + y + z &gt; 2],</span>
+    <span class="hljs-comment">#  [x == 0, y == 0, z == 1, x + y + z &gt; 2],</span>
+    <span class="hljs-comment">#  [x == 0, y == 1, z == 0, x + y + z &gt; 2],</span>
+    <span class="hljs-comment">#  [x == 0, y == 1, z == 1, x + y + z &gt; 2],</span>
+    <span class="hljs-comment">#  [x == 1, y == 0, z == 0, x + y + z &gt; 2],</span>
+    <span class="hljs-comment">#  [x == 1, y == 0, z == 1, x + y + z &gt; 2],</span>
+    <span class="hljs-comment">#  [x == 1, y == 1, z == 0, x + y + z &gt; 2],</span>
+    <span class="hljs-comment">#  [x == 1, y == 1, z == 1, x + y + z &gt; 2]]</span>
+    print()
+
+    split_at_most_2 = Repeat(OrElse(Tactic(<span class="hljs-string">&apos;split-clause&apos;</span>), Tactic(<span class="hljs-string">&apos;skip&apos;</span>)), <span class="hljs-number">1</span>)
+    print(split_at_most_2(g))
+    <span class="hljs-comment"># [[x == 0, y == 0, Or(z == 0, z == 1), x + y + z &gt; 2],</span>
+    <span class="hljs-comment">#  [x == 0, y == 1, Or(z == 0, z == 1), x + y + z &gt; 2],</span>
+    <span class="hljs-comment">#  [x == 1, y == 0, Or(z == 0, z == 1), x + y + z &gt; 2],</span>
+    <span class="hljs-comment">#  [x == 1, y == 1, Or(z == 0, z == 1), x + y + z &gt; 2]]</span>
+    print()
+
+    <span class="hljs-comment"># Split all clauses and solve equations</span>
+    <span class="hljs-comment"># &#x62C6;&#x5206;&#x6240;&#x6709;&#x5B50;&#x53E5;&#x5E76;&#x6C42;&#x89E3;&#x65B9;&#x7A0B;&#x5F0F;</span>
+    split_solve = Then(Repeat(OrElse(Tactic(<span class="hljs-string">&apos;split-clause&apos;</span>), Tactic(<span class="hljs-string">&apos;skip&apos;</span>))),Tactic(<span class="hljs-string">&apos;solve-eqs&apos;</span>))
+    print(split_solve(g))  <span class="hljs-comment"># [[]]</span>
+</code></pre>
+<p>&#x5728;&#x7B56;&#x7565;split_solver&#x4E2D;&#xFF0C;&#x7B56;&#x7565;solve-eqs&#x91CA;&#x653E;&#x4E86;&#x9664;&#x4E00;&#x4E2A;&#x76EE;&#x6807;&#x4EE5;&#x5916;&#x7684;&#x6240;&#x6709;&#x76EE;&#x6807;&#x3002; 
+&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x6B64;&#x7B56;&#x7565;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x76EE;&#x6807;&#xFF1A;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x6EE1;&#x8DB3;&#xFF08;&#x5373;&#x53EF;&#x884C;&#xFF09;&#x7684;&#x7A7A;&#x76EE;&#x6807;&#x3002;</p>
+<p><strong>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Python for&#x8BED;&#x53E5;&#x8F7B;&#x677E;&#x904D;&#x5386;&#x5B50;&#x76EE;&#x6807;&#x5217;&#x8868;&#x3002;</strong></p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B;47</span>
+<span class="hljs-keyword">from</span> z3 <span class="hljs-keyword">import</span> *
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    x, y, z = Reals(<span class="hljs-string">&apos;x y z&apos;</span>)
+    g = Goal()
+    g.add(Or(x == <span class="hljs-number">0</span>, x == <span class="hljs-number">1</span>),
+          Or(y == <span class="hljs-number">0</span>, y == <span class="hljs-number">1</span>),
+          Or(z == <span class="hljs-number">0</span>, z == <span class="hljs-number">1</span>),
+          x + y + z &gt; <span class="hljs-number">2</span>)
+
+    <span class="hljs-comment"># Split all clauses&quot;</span>
+    split_all = Repeat(OrElse(Tactic(<span class="hljs-string">&apos;split-clause&apos;</span>),
+                              Tactic(<span class="hljs-string">&apos;skip&apos;</span>)))
+    <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> split_all(g):
+        print(s)
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Solver()&#x65B9;&#x6CD5;&#x5C06;&#x6218;&#x672F;&#x8F6C;&#x6362;&#x4E3A;&#x6C42;&#x89E3;&#x5668;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x8BE5;&#x7B56;&#x7565;&#x4EA7;&#x751F;&#x4E86;&#x7A7A;&#x76EE;&#x6807;&#xFF0C;&#x5219;&#x5173;&#x8054;&#x7684;&#x6C42;&#x89E3;&#x5668;&#x5C06;&#x8FD4;&#x56DE;sat&#x3002; </p>
+<p>&#x5982;&#x679C;&#x8BE5;&#x7B56;&#x7565;&#x4EA7;&#x751F;&#x5305;&#x542B;False&#x7684;&#x5355;&#x4E2A;&#x76EE;&#x6807;&#xFF0C;&#x5219;&#x6C42;&#x89E3;&#x5668;&#x5C06;&#x8FD4;&#x56DE;unsat&#x3002; &#x5426;&#x5219;&#xFF0C;&#x8FD4;&#x56DE;&#x672A;&#x77E5;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B;48</span>
+<span class="hljs-keyword">from</span> z3 <span class="hljs-keyword">import</span> *
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    bv_solver = Then(<span class="hljs-string">&apos;simplify&apos;</span>, <span class="hljs-string">&apos;solve-eqs&apos;</span>, <span class="hljs-string">&apos;bit-blast&apos;</span>, <span class="hljs-string">&apos;sat&apos;</span>).solver()
+    x, y = BitVecs(<span class="hljs-string">&apos;x y&apos;</span>, <span class="hljs-number">16</span>)
+    solve_using(bv_solver, x | y == <span class="hljs-number">13</span>, x &gt; y)  <span class="hljs-comment"># [y = 0, x = 13]</span>
+</code></pre>
+<p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x7B56;&#x7565;bv_solver&#x4F7F;&#x7528;&#x65B9;&#x7A0B;&#x5F0F;&#x6C42;&#x89E3;&#xFF0C;&#x4F4D;&#x7206;&#x7834;&#x548C;&#x547D;&#x9898;SAT&#x6C42;&#x89E3;&#x5668;&#x6765;&#x5B9E;&#x73B0;&#x57FA;&#x672C;&#x7684;&#x4F4D;&#x5411;&#x91CF;&#x6C42;&#x89E3;&#x5668;&#x3002; 
+&#x6CE8;&#x610F;&#xFF0C;&#x547D;&#x4EE4;&#x201C;&#x6218;&#x672F;&#x201D;&#x88AB;&#x7981;&#x6B62;&#x3002; &#x5982;&#x679C;&#x53C2;&#x6570;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x6240;&#x6709;Z3Py&#x7EC4;&#x5408;&#x5668;&#x90FD;&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528;Tactic&#x547D;&#x4EE4;&#x3002; 
+&#x6700;&#x540E;&#xFF0C;<strong>&#x547D;&#x4EE4;solve_using&#x662F;solve&#x547D;&#x4EE4;&#x7684;&#x53D8;&#x4F53;&#xFF0C;&#x5176;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x6C42;&#x89E3;&#x5668;&#x3002;</strong></p>
+<p>&#x5728;&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x6C42;&#x89E3;&#x5668;API&#x800C;&#x4E0D;&#x662F;&#x547D;&#x4EE4;resolve_using&#x3002; 
+&#x6211;&#x4EEC;&#x4F7F;&#x7528;<strong>&#x7EC4;&#x5408;&#x5668;With&#x6765;&#x914D;&#x7F6E;&#x6211;&#x4EEC;&#x7684;&#x5C0F;&#x89E3;&#x7B97;&#x5668;&#x3002;</strong> &#x6211;&#x4EEC;&#x8FD8;&#x5305;&#x62EC;&#x6218;&#x672F;aig&#xFF0C;&#x5B83;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528;&#x201C;&#x4E0E;&#x9006;&#x56FE;&#x201D;&#x538B;&#x7F29;&#x5E03;&#x5C14;&#x516C;&#x5F0F;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B;49</span>
+<span class="hljs-keyword">from</span> z3 <span class="hljs-keyword">import</span> *
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    bv_solver = Then(With(<span class="hljs-string">&apos;simplify&apos;</span>, mul2concat=<span class="hljs-keyword">True</span>),
+                     <span class="hljs-string">&apos;solve-eqs&apos;</span>,
+                     <span class="hljs-string">&apos;bit-blast&apos;</span>,
+                     <span class="hljs-string">&apos;aig&apos;</span>,
+                     <span class="hljs-string">&apos;sat&apos;</span>).solver()
+    x, y = BitVecs(<span class="hljs-string">&apos;x y&apos;</span>, <span class="hljs-number">16</span>)
+    bv_solver.add(x * <span class="hljs-number">32</span> + y == <span class="hljs-number">13</span>, x &amp; y &lt; <span class="hljs-number">10</span>, y &gt; <span class="hljs-number">-100</span>)
+    print(bv_solver.check())  <span class="hljs-comment"># sat</span>
+    m = bv_solver.model()
+    print(m)  <span class="hljs-comment"># [y = 10509, x = 1720]</span>
+    print(x * <span class="hljs-number">32</span> + y, <span class="hljs-string">&quot;==&quot;</span>, m.evaluate(x * <span class="hljs-number">32</span> + y))  <span class="hljs-comment"># x*32 + y == 13</span>
+    print(x &amp; y, <span class="hljs-string">&quot;==&quot;</span>, m.evaluate(x &amp; y))  <span class="hljs-comment"># x &amp; y == 8</span>
+</code></pre>
+<p><strong>&#x7B56;&#x7565;smt&#x5C06;&#x4E3B;&#x8981;&#x6C42;&#x89E3;&#x5668;&#x5305;&#x88C5;&#x5728;Z3&#x4E2D;&#x4F5C;&#x4E3A;&#x7B56;&#x7565;&#x3002;</strong></p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B;50</span>
+<span class="hljs-keyword">from</span> z3 <span class="hljs-keyword">import</span> *
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    x, y = Ints(<span class="hljs-string">&apos;x y&apos;</span>)
+    s = Tactic(<span class="hljs-string">&apos;smt&apos;</span>).solver()
+    s.add(x &gt; y + <span class="hljs-number">1</span>)
+    print(s.check())  <span class="hljs-comment"># sat</span>
+    print(s.model())  <span class="hljs-comment"># [y = -2, x = 0]</span>
+</code></pre>
+<p><strong>&#x73B0;&#x5728;&#xFF0C;&#x6211;&#x4EEC;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528;SAT&#x5B9E;&#x73B0;&#x6574;&#x6570;&#x7B97;&#x6CD5;&#x7684;&#x6C42;&#x89E3;&#x5668;&#x3002;</strong> 
+&#x4EC5;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x53D8;&#x91CF;&#x90FD;&#x6709;&#x4E0A;&#x9650;&#x548C;&#x4E0B;&#x9650;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6C42;&#x89E3;&#x5668;&#x624D;&#x662F;&#x5B8C;&#x6574;&#x7684;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B;51</span>
+<span class="hljs-keyword">from</span> z3 <span class="hljs-keyword">import</span> *
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    s = Then(With(<span class="hljs-string">&apos;simplify&apos;</span>, arith_lhs=<span class="hljs-keyword">True</span>, som=<span class="hljs-keyword">True</span>),
+             <span class="hljs-string">&apos;normalize-bounds&apos;</span>, <span class="hljs-string">&apos;lia2pb&apos;</span>, <span class="hljs-string">&apos;pb2bv&apos;</span>,
+             <span class="hljs-string">&apos;bit-blast&apos;</span>, <span class="hljs-string">&apos;sat&apos;</span>).solver()
+    x, y, z = Ints(<span class="hljs-string">&apos;x y z&apos;</span>)
+    solve_using(s,
+                x &gt; <span class="hljs-number">0</span>, x &lt; <span class="hljs-number">10</span>,
+                y &gt; <span class="hljs-number">0</span>, y &lt; <span class="hljs-number">10</span>,
+                z &gt; <span class="hljs-number">0</span>, z &lt; <span class="hljs-number">10</span>,
+                <span class="hljs-number">3</span> * y + <span class="hljs-number">2</span> * x == z)  <span class="hljs-comment"># [x = 3, y = 1, z = 9]</span>
+    <span class="hljs-comment"># It fails on the next example (it is unbounded)</span>
+    <span class="hljs-comment"># &#x5728;&#x4E0B;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x4E2D;&#x5931;&#x8D25;&#xFF08;&#x5B83;&#x662F;&#x65E0;&#x754C;&#x7684;&#xFF09;</span>
+    print()
+    s.reset()
+    solve_using(s, <span class="hljs-number">3</span> * y + <span class="hljs-number">2</span> * x == z)  <span class="hljs-comment"># failed to solve</span>
+</code></pre>
+<p>&#x7B56;&#x7565;&#x53EF;&#x4EE5;&#x4E0E;&#x6C42;&#x89E3;&#x5668;&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#x3002; 
+&#x4F8B;&#x5982;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x7B56;&#x7565;&#x5E94;&#x7528;&#x4E8E;&#x76EE;&#x6807;&#xFF0C;&#x751F;&#x6210;&#x4E00;&#x7EC4;&#x5B50;&#x76EE;&#x6807;&#xFF0C;&#x7136;&#x540E;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x5B50;&#x76EE;&#x6807;&#x5E76;&#x4F7F;&#x7528;&#x6C42;&#x89E3;&#x5668;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x6C42;&#x89E3;&#x3002; 
+&#x4E0B;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x6267;&#x884C;&#x6B64;&#x64CD;&#x4F5C;&#xFF0C;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x4F7F;&#x7528;<strong>&#x6A21;&#x578B;&#x8F6C;&#x6362;&#x5668;&#x5C06;&#x5B50;&#x76EE;&#x6807;&#x7684;&#x6A21;&#x578B;&#x8F6C;&#x6362;&#x4E3A;&#x539F;&#x59CB;&#x76EE;&#x6807;&#x7684;&#x6A21;&#x578B;&#x3002;</strong></p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B;52</span>
+<span class="hljs-keyword">from</span> z3 <span class="hljs-keyword">import</span> *
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    t = Then(<span class="hljs-string">&apos;simplify&apos;</span>,<span class="hljs-string">&apos;normalize-bounds&apos;</span>,<span class="hljs-string">&apos;solve-eqs&apos;</span>)
+    x, y, z = Ints(<span class="hljs-string">&apos;x y z&apos;</span>)
+    g = Goal()
+    g.add(x &gt; <span class="hljs-number">10</span>, y == x + <span class="hljs-number">3</span>, z &gt; y)
+
+    r = t(g)
+    <span class="hljs-comment"># r contains only one subgoal</span>
+    <span class="hljs-comment"># r&#x4EC5;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x5B50;&#x76EE;&#x6807;</span>
+    print(r)  <span class="hljs-comment"># [[Not(k!0 &lt;= -1), Not(z &lt;= 14 + k!0)]]</span>
+
+    s = Solver()
+    s.add(r[<span class="hljs-number">0</span>])
+    print(s.check())  <span class="hljs-comment"># sat</span>
+    <span class="hljs-comment"># Model for the subgoal</span>
+    <span class="hljs-comment"># &#x5B50;&#x76EE;&#x6807;&#x6A21;&#x578B;</span>
+    print(s.model())  <span class="hljs-comment"># [z = 15]</span>
+    <span class="hljs-comment"># Model for the original goal</span>
+    <span class="hljs-comment"># &#x6700;&#x521D;&#x76EE;&#x6807;&#x7684;&#x6A21;&#x578B;</span>
+    <span class="hljs-comment"># &#x4F1A;&#x62A5;&#x9519;=&gt; AttributeError: &apos;ApplyResult&apos; object has no attribute &apos;convert_model&apos;</span>
+    <span class="hljs-comment"># print(r.convert_model(s.model()))</span>
+</code></pre>
+<h2 id="3&#x3001;&#x63A2;&#x9488;">3&#x3001;&#x63A2;&#x9488;</h2>
+<p>&#x63A2;&#x6D4B;&#xFF08;&#x53C8;&#x79F0;<strong>&#x516C;&#x5F0F;&#x6D4B;&#x5EA6;</strong>&#xFF09;&#x662F;&#x9488;&#x5BF9;&#x76EE;&#x6807;&#x8FDB;&#x884C;&#x8BC4;&#x4F30;&#x7684;&#x3002;
+&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5173;&#x7CFB;&#x8FD0;&#x7B97;&#x7B26;&#x548C;&#x5E03;&#x5C14;&#x8FDE;&#x63A5;&#x8BCD;&#x6765;&#x6784;&#x5EFA;&#x5B83;&#x4EEC;&#x4E4B;&#x4E0A;&#x7684;&#x5E03;&#x5C14;&#x8868;&#x8FBE;&#x5F0F;&#x3002; 
+&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x76EE;&#x6807;&#x4E0D;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;cond&#xFF0C;&#x5219;&#x6218;&#x672F;FailIf&#xFF08;cond&#xFF09;&#x5931;&#x8D25;&#x3002; 
+Z3Py&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x8BB8;&#x591A;&#x6570;&#x503C;&#x548C;&#x5E03;&#x5C14;&#x91CF;&#x5EA6;&#x3002; 
+&#x547D;&#x4EE4;describe_probes&#xFF08;&#xFF09;&#x63D0;&#x4F9B;&#x6240;&#x6709;&#x5185;&#x7F6E;&#x63A2;&#x9488;&#x7684;&#x5217;&#x8868;&#x3002;</p>
+<pre><code class="lang-python">describe_probes()
+</code></pre>
+<p>&#x5728;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;FailIf&#x6784;&#x5EFA;&#x7B80;&#x5355;&#x7684;&#x7B56;&#x7565;&#x3002; 
+&#x5B83;&#x8FD8;&#x8868;&#x660E;&#x53EF;&#x4EE5;&#x5C06;&#x63A2;&#x9488;&#x76F4;&#x63A5;&#x5E94;&#x7528;&#x4E8E;&#x76EE;&#x6807;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B;53</span>
+<span class="hljs-keyword">from</span> z3 <span class="hljs-keyword">import</span> *
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    x, y, z = Reals(<span class="hljs-string">&apos;x y z&apos;</span>)
+    g = Goal()
+    g.add(x + y + z &gt; <span class="hljs-number">0</span>)
+
+    p = Probe(<span class="hljs-string">&apos;num-consts&apos;</span>)
+    print(<span class="hljs-string">&quot;num-consts:&quot;</span>, p(g))  <span class="hljs-comment"># num-consts: 3.0</span>
+
+    t = FailIf(p &gt; <span class="hljs-number">2</span>)
+    <span class="hljs-keyword">try</span>:
+        t(g)
+    <span class="hljs-keyword">except</span> Z3Exception:
+        print(<span class="hljs-string">&quot;tactic failed&quot;</span>)  <span class="hljs-comment"># tactic failed</span>
+
+    print(<span class="hljs-string">&quot;trying again...&quot;</span>)  <span class="hljs-comment"># trying again...</span>
+    g = Goal()
+    g.add(x + y &gt; <span class="hljs-number">0</span>)
+    print(t(g))  <span class="hljs-comment"># [[x + y &gt; 0]]</span>
+</code></pre>
+<p>Z3Py&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x7EC4;&#x5408;&#x5668;&#xFF08;&#x6218;&#x672F;&#xFF09; <code>If(p, t1, t2)</code>&#xFF0C;&#x5B83;&#x662F;&#x4EE5;&#x4E0B;&#x5404;&#x9879;&#x7684;&#x7B80;&#x5199;&#xFF1A;</p>
+<pre><code class="lang-python">OrElse(Then(FailIf(Not(p)), t1), t2)
+</code></pre>
+<p>&#x7EC4;&#x5408;&#x5668; <code>When(p, t)</code>&#x662F;&#x4EE5;&#x4E0B;&#x5404;&#x9879;&#x7684;&#x7B80;&#x5199;&#xFF1A;</p>
+<pre><code class="lang-python">If(p, t, <span class="hljs-string">&apos;skip&apos;</span>)
+</code></pre>
+<p>skip&#x7B56;&#x7565;&#x53EA;&#x662F;&#x8FD4;&#x56DE;&#x8F93;&#x5165;&#x76EE;&#x6807;&#x3002; &#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x6F14;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528;If&#x7EC4;&#x5408;&#x5668;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B;54</span>
+<span class="hljs-keyword">from</span> z3 <span class="hljs-keyword">import</span> *
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    x, y, z = Reals(<span class="hljs-string">&apos;x y z&apos;</span>)
+    g = Goal()
+    g.add(x ** <span class="hljs-number">2</span> - y ** <span class="hljs-number">2</span> &gt;= <span class="hljs-number">0</span>)
+
+    p = Probe(<span class="hljs-string">&apos;num-consts&apos;</span>)
+    t = If(p &gt; <span class="hljs-number">2</span>, <span class="hljs-string">&apos;simplify&apos;</span>, <span class="hljs-string">&apos;factor&apos;</span>)
+    print(t(g))  <span class="hljs-comment"># [[(y + -1*x)*(y + x) &lt;= 0]]</span>
+
+    g = Goal()
+    g.add(x + x + y + z &gt;= <span class="hljs-number">0</span>, x ** <span class="hljs-number">2</span> - y ** <span class="hljs-number">2</span> &gt;= <span class="hljs-number">0</span>)
+    print(t(g))  <span class="hljs-comment"># [[2*x + y + z &gt;= 0, x**2 + -1*y**2 &gt;= 0]]</span>
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; Zhi2014 2023 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2023-03-09 17:52:10
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2-Z3API_in_Python-Fixedpoints.html" class="navigation navigation-prev " aria-label="Previous page: 2-Python中的z3 api-Fixedpoints">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../应用/推理.html" class="navigation navigation-next " aria-label="Next page: 应用">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2-Python中的z3 api-Strategies","level":"1.3.5","depth":2,"next":{"title":"应用","level":"1.4","depth":1,"path":"docs/应用/推理.md","ref":"docs/应用/推理.md","articles":[{"title":"综述","level":"1.4.1","depth":2,"path":"docs/paper/综述.md","ref":"docs/paper/综述.md","articles":[]}]},"previous":{"title":"2-Python中的z3 api-Fixedpoints","level":"1.3.4","depth":2,"path":"docs/tutorial/2-Z3API_in_Python-Fixedpoints.md","ref":"docs/tutorial/2-Z3API_in_Python-Fixedpoints.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","back-to-top-button","chapter-fold","code","copy-code-button","splitter","tbfed-pagefooter","page-toc-button","theme-comscore"],"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy Zhi2014 2023","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{"maxTocDepth":5,"minTocSize":2},"back-to-top-button":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/tutorial/2-Z3API_in_Python-Strategies.md","mtime":"2023-03-09T17:52:10.057Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-09T17:52:57.031Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

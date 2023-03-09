@@ -1,0 +1,5 @@
+(declare-const a Int) ; 声明常量a, Int类型
+(declare-fun f (Int Bool) Int) ; 声明一个函数f，入参：Int、Bool 出参: Int
+(assert (> a 10))   ; 断言=>a > 10
+(assert (< (f a true) 100)) ; 断言=>f(a,true) < 100
+(check-sat) ; sat
