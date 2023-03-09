@@ -10,9 +10,8 @@
   - [2-Python中的z3 api-Basics](docs/tutorial/2-Z3API_in_Python-Basics.md)
   - [2-Python中的z3 api-Fixedpoints](docs/tutorial/2-Z3API_in_Python-Fixedpoints.md)
   - [2-Python中的z3 api-Strategies](docs/tutorial/2-Z3API_in_Python-Strategies.md)
-  
 
 * [应用](docs/应用/推理.md)
-
-* [论文](empty.md)
+[
+]()* [论文](empty.md)
   - [综述](docs/paper/综述.md)
