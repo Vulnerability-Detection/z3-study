@@ -143,6 +143,8 @@ if __name__ == '__main__':
 
 - [ ] yinyang: a fuzzer for SMT solvers：https://github.com/testsmt/yinyang 84
 
+- [ ] 【PLDI2011 CCF-A】Synthesis of loop-free programs: http://www.csl.sri.com/users/tiwari/papers/pldi2011-bitvector.pdf
+
 - [ ] 【PLDI2020 CCF-A】Validating SMT solvers via semantic fusion：http://chengyuzhang.com/
 
 - [ ] On the unusual effectiveness of type-aware operator mutations for testing SMT solvers
